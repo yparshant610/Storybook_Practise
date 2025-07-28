@@ -1,0 +1,49 @@
+.mainContainer {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding-left: 887.5px;
+    padding-right: 0;
+    padding-top: 53px;
+    padding-bottom: 53px;
+}
+
+.leftSide {
+    position: absolute;
+    left: 0;
+    top: 53px;
+    width: 887.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 553.966px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 20.474px;
+}
+
+.rightSide {
+    width: 650px;
+    height: 650px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Additional spacing adjustments for specific components */
+.content > *:nth-child(1) { /* TextMain */
+    margin-bottom: 24px;
+}
+
+.content > *:nth-child(2) { /* TextBody */
+    margin-bottom: 32px;
+}
+
+.buttonRatingContainer {
+    display: flex;
+    align-items: center;
+    gap: 32px; /* Adjust this value to match the Figma spacing */
+} 

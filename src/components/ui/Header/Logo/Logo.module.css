@@ -1,0 +1,9 @@
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+ 
+.logoContainer img {
+    max-width: 100%;
+    height: auto;
+} 

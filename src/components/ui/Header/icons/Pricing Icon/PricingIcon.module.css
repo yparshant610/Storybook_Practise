@@ -1,0 +1,8 @@
+.pricingContainer {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #2e2f35;
+} 
