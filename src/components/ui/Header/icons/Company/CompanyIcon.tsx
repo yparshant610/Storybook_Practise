@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import styles from './CompanyIcon.module.css';
 
-const ArrowDownIcon = () => (
+export type CompanyIconSize = 'small' | 'medium' | 'large';
+
+export interface CompanyIconProps {
+    size?: CompanyIconSize;
+    color?: string;
+    disabled?: boolean;
+    className?: string;
+}
+
+const ArrowDownIcon = ({ color }: { color?: string }) => (
     <svg
         width="10"
         height="6"
@@ -12,7 +21,7 @@ const ArrowDownIcon = () => (
     >
         <path
             d="M1 1L5 5L9 1"
-            stroke="#222222"
+            stroke={color || "#222222"}
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -20,20 +29,33 @@ const ArrowDownIcon = () => (
     </svg>
 );
 
-export const CompanyIcon = () => {
+export const CompanyIcon: React.FC<CompanyIconProps> = ({
+    size = 'medium',
+    color,
+    disabled = false,
+    className = '',
+}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
-        setIsOpen(!isOpen);
+        if (!disabled) setIsOpen(!isOpen);
     };
 
     return (
-        <div className={styles.companyContainer} onClick={toggleDropdown}>
+        <div
+            className={[
+                styles.companyContainer,
+                styles[size],
+                disabled ? styles.disabled : '',
+                className,
+            ].join(' ')}
+            onClick={toggleDropdown}
+            style={color ? { color } : {}}
+        >
             <span>Company</span>
-            <ArrowDownIcon />
-            {isOpen && (
+            <ArrowDownIcon color={color} />
+            {isOpen && !disabled && (
                 <div className={styles.dropdownMenu}>
-                    {/* Add your dropdown menu items here */}
                     <a href="#">About Us</a>
                     <a href="#">Careers</a>
                     <a href="#">Press</a>

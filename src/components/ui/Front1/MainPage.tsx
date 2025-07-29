@@ -3,7 +3,7 @@ import styles from './MainPage.module.css';
 import { RatingStars } from './Side-Left/Rating/RatingStars';
 import { TextMain } from './Side-Left/Main Text/TextMain';
 import { TextBody } from './Side-Left/Side text/TextBody';
-import { RiskFreeButton } from './Side-Left/Button Risk-Free/riskFreeButton';
+import RiskFreeButton  from './Side-Left/Button Risk-Free/riskFreeButton';
 import { SideRightView } from './Side-Right/sideRightView';
 
 export const MainPage: React.FC = () => {

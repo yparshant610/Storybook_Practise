@@ -5,4 +5,29 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #2e2f35;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.headerContainer.dark .pricingContainer,
+.headerContainer.dark .pricingContainer span {
+    color: #fff;
+}
+
+.pricingContainer.small {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+.pricingContainer.medium {
+    font-size: 14px;
+    padding: 8px 14px;
+}
+.pricingContainer.large {
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.pricingContainer.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
 } 

@@ -3,12 +3,38 @@
     padding: 20.474px 0;
 }
 
+.headerContainer.dark {
+    background-color: #222;
+    color: #fff;
+}
+
+.headerContainer.dark .header {
+    border-bottom: 1px solid #444;
+}
+
+.headerContainer.dark .logoContainer,
+.headerContainer.dark .rightSide,
+.headerContainer.dark .nav,
+.headerContainer.dark .actions {
+    color: #fff;
+}
+
+.headerContainer.dark .header {
+    background-color: transparent;
+}
+
+.headerContainer.mobile .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 8px;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #ffffff;
+    background-color: transparent;
     border-bottom: 1px solid #eaeaea;
     max-width: 1290px;
     margin: 0 auto;
@@ -21,7 +47,7 @@
 .rightSide {
     display: flex;
     align-items: center;
-    gap: 30px; /* Adjust this value to match the design */
+    gap: 30px;
 }
 
 .nav {

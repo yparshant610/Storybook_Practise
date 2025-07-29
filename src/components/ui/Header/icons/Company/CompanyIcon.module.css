@@ -6,6 +6,12 @@
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     color: #222222;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.headerContainer.dark .companyContainer,
+.headerContainer.dark .companyContainer span {
+    color: #fff;
 }
 
 .companyContainer span {
@@ -14,6 +20,10 @@
 
 .arrowIcon {
     transition: transform 0.2s ease-in-out;
+}
+
+.headerContainer.dark .arrowIcon path {
+    stroke: #fff;
 }
 
 .companyContainer.open .arrowIcon {
@@ -35,6 +45,12 @@
     padding: 5px 0;
 }
 
+.headerContainer.dark .dropdownMenu {
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+}
+
 .dropdownMenu a {
     color: #333;
     padding: 8px 16px;
@@ -42,6 +58,33 @@
     display: block;
 }
 
+.headerContainer.dark .dropdownMenu a {
+    color: #fff;
+}
+
 .dropdownMenu a:hover {
     background-color: #f5f5f5;
+}
+
+.headerContainer.dark .dropdownMenu a:hover {
+    background-color: #333;
+}
+
+.companyContainer.small {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+.companyContainer.medium {
+    font-size: 15px;
+    padding: 8px 14px;
+}
+.companyContainer.large {
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.companyContainer.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
 } 

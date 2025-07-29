@@ -5,4 +5,29 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #2e2f35;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.headerContainer.dark .successStoriesContainer,
+.headerContainer.dark .successStoriesContainer span {
+    color: #fff;
+}
+
+.successStoriesContainer.small {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+.successStoriesContainer.medium {
+    font-size: 14px;
+    padding: 8px 14px;
+}
+.successStoriesContainer.large {
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.successStoriesContainer.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
 } 
