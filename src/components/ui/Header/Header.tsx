@@ -1,12 +1,8 @@
 import React, { ReactNode } from 'react';
 import styles from './Header.module.css';
 import { Logo as DefaultLogo } from './Logo/Logo';
-import { ResourceIcon } from './icons/Resources Icon/ResourceIcon';
-import { SuccessStoriesIcon } from './icons/SuccessStoriesIcon/SuccessStoriesIcon';
-import { CompanyIcon } from './icons/Company/CompanyIcon';
-import { PricingIcon } from './icons/Pricing Icon/PricingIcon';
-import LoginButton from './login/LoginButton';
-import CreateFreeAccountButton from './createFreeAccount/CreateFreeAccountButton';
+import { ReusableIcon } from './icons/ReusableIcon/ReusableIcon';
+import ReusableButton from './ReusableButton/ReusableButton';
 
 export interface HeaderProps {
   loginDisabled?: boolean;
@@ -22,6 +18,18 @@ export interface HeaderProps {
   mobile?: boolean;
   style?: React.CSSProperties;
   className?: string;
+  // Button customization props
+  loginButtonVariant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+  createAccountButtonVariant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+  loginButtonColor?: string;
+  createAccountButtonColor?: string;
+  loginButtonTextColor?: string;
+  createAccountButtonTextColor?: string;
+  loginButtonBorderColor?: string;
+  createAccountButtonBorderColor?: string;
+  // Icon customization props
+  iconSize?: 'small' | 'medium' | 'large';
+  iconColor?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -38,6 +46,18 @@ const Header: React.FC<HeaderProps> = ({
   mobile = false,
   style,
   className = '',
+  // Button customization props
+  loginButtonVariant = 'outline',
+  createAccountButtonVariant = 'primary',
+  loginButtonColor,
+  createAccountButtonColor,
+  loginButtonTextColor,
+  createAccountButtonTextColor,
+  loginButtonBorderColor,
+  createAccountButtonBorderColor,
+  // Icon customization props
+  iconSize = 'medium',
+  iconColor,
 }) => {
   return (
     <div
@@ -55,19 +75,77 @@ const Header: React.FC<HeaderProps> = ({
           <nav className={styles.nav}>
             {navItems || (
               <>
-                <ResourceIcon />
-                <SuccessStoriesIcon />
-                <CompanyIcon />
-                <PricingIcon />
+                <ReusableIcon 
+                  label="Resources" 
+                  type="dropdown" 
+                  size={iconSize}
+                  color={iconColor}
+                  dropdownItems={[
+                    { label: 'Documentation', href: '#docs' },
+                    { label: 'API Reference', href: '#api' },
+                    { label: 'Tutorials', href: '#tutorials' },
+                    { label: 'Community', href: '#community' }
+                  ]}
+                />
+                <ReusableIcon 
+                  label="Success Stories" 
+                  type="dropdown" 
+                  size={iconSize}
+                  color={iconColor}
+                  dropdownItems={[
+                    { label: 'Case Studies', href: '#case-studies' },
+                    { label: 'Customer Reviews', href: '#reviews' },
+                    { label: 'Testimonials', href: '#testimonials' }
+                  ]}
+                />
+                <ReusableIcon 
+                  label="Company" 
+                  type="dropdown" 
+                  size={iconSize}
+                  color={iconColor}
+                  dropdownItems={[
+                    { label: 'About Us', href: '#about' },
+                    { label: 'Careers', href: '#careers' },
+                    { label: 'Press', href: '#press' },
+                    { label: 'Contact', href: '#contact' }
+                  ]}
+                />
+                <ReusableIcon 
+                  label="Pricing" 
+                  type="simple" 
+                  size={iconSize}
+                  color={iconColor}
+                  onClick={() => console.log('Pricing clicked!')}
+                />
               </>
             )}
           </nav>
           <div className={styles.actions}>
             {!hideLogin && (
-              <LoginButton text="Login" disabled={loginDisabled} loading={loginLoading} />
+              <ReusableButton 
+                text="Login" 
+                variant={loginButtonVariant}
+                size="medium"
+                backgroundColor={loginButtonColor}
+                textColor={loginButtonTextColor}
+                borderColor={loginButtonBorderColor}
+                disabled={loginDisabled}
+                loading={loginLoading}
+                onClick={() => console.log('Login clicked!')}
+              />
             )}
             {!hideCreateAccount && (
-              <CreateFreeAccountButton text="Create free account" disabled={createAccountDisabled} loading={createAccountLoading} />
+              <ReusableButton 
+                text="Create free account" 
+                variant={createAccountButtonVariant}
+                size="medium"
+                backgroundColor={createAccountButtonColor}
+                textColor={createAccountButtonTextColor}
+                borderColor={createAccountButtonBorderColor}
+                disabled={createAccountDisabled}
+                loading={createAccountLoading}
+                onClick={() => console.log('Create account clicked!')}
+              />
             )}
             {actions}
           </div>
